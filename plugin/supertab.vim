@@ -703,6 +703,7 @@ function! s:ContextText() " {{{
     let cnum = col('.')
     let synname = synIDattr(synID(line('.'), cnum - 1, 1), 'name')
     if curline =~ '.*/\w*\%' . cnum . 'c' ||
+      \ curline =~ '#include\s.*\%' . cnum . 'c' ||
       \ ((has('win32') || has('win64')) && curline =~ '.*\\\w*\%' . cnum . 'c')
       return "\<c-x>\<c-f>"
 
